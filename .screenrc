@@ -1,0 +1,60 @@
+#se the startup message
+startup_message off
+term linux
+##use ` as the Global Key
+## escape ``
+##set a biger buffer
+defscrollback 4096
+#????
+hardstatus alwayslastline
+shelltitle "$|bash"
+
+autodetach on
+
+#set messages timeout to 2 seconds
+msgwait 2
+
+#use bash as default shell
+shell bash
+
+#hardstatus string '%{= kG}[ %{G}%c:%s %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{C}(F1)New (F2)Rename (F3)Monitor (F4)Slience %{g}][%{kB} %d/%m %{w}%c %{g}]'
+hardstatus string '%{= kG}[ %{G} %Y/%m/%d %c %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][ %{G} %H %{g}][ %{C}(F8)screen (F9)detach (F10)title %{g}]'
+
+##shutdown the noise
+vbell off
+
+## w to show the window list
+bind w windowlist -b
+bind ^w windowlist -b
+##initial apps to run
+screen
+screen
+screen
+screen
+select 0
+
+#
+#bindkey -k k1 screen
+#bindkey -k k2 title
+#bindkey -k k3 monitor
+#bindkey -k k4 silence
+#bindkey -k k5 colon
+#bindkey -k k6 monitor
+#bindkey -k k; focus
+#bindkey -k k7 focus
+
+#bind F7 to kill current window
+#bind F8 to create a new window
+#bind F9 to detach screen session from this terminal
+#bind F10 to rename current screen window
+#bind F11 to move to previous window
+#bind F11 to move to next window
+bindkey -k k7 kill
+bindkey -k k8 screen
+bindkey -k k9 detach
+bindkey -k k; title
+bindkey -k F1 prev
+bindkey -k F2 next
+attrcolor u "-u B"
+sessionname genglequn
+autodetach on
